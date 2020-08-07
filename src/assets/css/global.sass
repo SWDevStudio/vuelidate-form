@@ -14,3 +14,19 @@ $size__font_little: 14px
   font-family: "Rubik", "sans-serif"
   font-size: $size
   color: $color
+
+@mixin pseudocheck($size, $top : false, $right : false, $bottom : false, $left : false)
+  content: ''
+  position: absolute
+  width: $size
+  height: $size
+  display: block
+  @if $top
+    top: $top
+  @if $right
+    right: $right
+  @if $bottom
+    bottom: $bottom
+  @if $left
+    left: $left
+

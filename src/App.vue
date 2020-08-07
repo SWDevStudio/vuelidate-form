@@ -17,6 +17,7 @@
         *Группа клиентов
       </v-selector>
       <v-selector name="doctor">Лечащий врач</v-selector>
+      <v-checkbox>Не отправлять СМС</v-checkbox>
     </div>
   </form>
 </template>
@@ -26,10 +27,11 @@ import { required, minLength, between } from "vuelidate/lib/validators";
 import VInput from "./components/v-input";
 import VRadio from "./components/v-radio";
 import VSelector from "./components/v-selector";
+import VCheckbox from "./components/v-checkbox";
 
 export default {
   name: "App",
-  components: { VSelector, VRadio, VInput },
+  components: {VCheckbox, VSelector, VRadio, VInput },
   data() {
     return {
       name: "",

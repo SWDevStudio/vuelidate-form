@@ -43,7 +43,7 @@ export default {
     isMultiple() {
       if (this.multiple) {
         let obj = document.getElementById(this.randomId);
-        obj.setAttribute('multiple', '')
+        obj.setAttribute("multiple", "");
       }
     }
   },
@@ -55,9 +55,9 @@ export default {
     }
     this.randomId = rs;
   },
-    mounted() {
-      this.isMultiple();
-    }
+  mounted() {
+    this.isMultiple();
+  }
 };
 </script>
 
