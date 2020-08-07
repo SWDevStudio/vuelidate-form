@@ -49,7 +49,7 @@ export default {
         height: 12px
         right: 2px
         top: 3px
-        background: #FF9696
+        background: $color__border
         border-radius: 100%
 
     &:before
@@ -58,9 +58,8 @@ export default {
       width: 15px
       height: 15px
       right: 0
-      border: 1px solid #FF9696
+      border: 1px solid $color__border
       border-radius: 100%
-
     input
       display: none
 </style>
