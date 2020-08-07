@@ -31,7 +31,7 @@ import VCheckbox from "./components/v-checkbox";
 
 export default {
   name: "App",
-  components: {VCheckbox, VSelector, VRadio, VInput },
+  components: { VCheckbox, VSelector, VRadio, VInput },
   data() {
     return {
       name: "",

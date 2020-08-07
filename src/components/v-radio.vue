@@ -2,23 +2,19 @@
   <v-form-item>
     <span><slot /></span>
     <span class="form__radio-buttons radio-buttons">
-      <label
-        v-for="(index, key) in list"
-        :key="key"
-        class="radio-buttons__item"
-      >
-        {{ index }}
-        <input type="radio" :value="key" :name="name" class="test" />
-      </label>
+      <span v-for="(index, key) in list" :key="key" class="radio-buttons__item">
+        <v-radio-button :name="name">{{index}}</v-radio-button>
+      </span>
     </span>
   </v-form-item>
 </template>
 
 <script>
 import VFormItem from "./v-form-item";
+import VRadioButton from "./v-radio-button";
 export default {
   name: "v-radio",
-  components: { VFormItem },
+  components: {VRadioButton, VFormItem },
   props: {
     list: {
       type: Array,
@@ -28,7 +24,13 @@ export default {
       type: String,
       default: () => ""
     }
-  }
+  },
+  data() {
+    return {
+      randomId: ""
+    }
+  },
+
 };
 </script>
 <style lang="sass">
@@ -38,28 +40,6 @@ export default {
   &__item
     display: flex
     align-items: center
-    padding-right: 25px
     margin-right: 20px
     position: relative
-    &.active
-      &:after
-        content: ''
-        position: absolute
-        width: 12px
-        height: 12px
-        right: 2px
-        top: 3px
-        background: $color__border
-        border-radius: 100%
-
-    &:before
-      content: ''
-      position: absolute
-      width: 15px
-      height: 15px
-      right: 0
-      border: 1px solid $color__border
-      border-radius: 100%
-    /*input:checked + .radio-buttons__item:after*/
-    /*  background: aqua*/
 </style>

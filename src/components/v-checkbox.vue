@@ -1,18 +1,18 @@
 <template>
   <v-form-item>
     <div class="checkbox">
-      <input id='test' type="checkbox" class="checkbox__input">
+      <input id="test" type="checkbox" class="checkbox__input" />
       <label for="test" class="checkbox__label"><slot /></label>
     </div>
   </v-form-item>
 </template>
 
 <script>
-    import VFormItem from "./v-form-item";
-    export default {
-        name: "v-checkbox",
-        components: {VFormItem}
-    }
+import VFormItem from "./v-form-item";
+export default {
+  name: "v-checkbox",
+  components: { VFormItem }
+};
 </script>
 
 <style lang="sass">
