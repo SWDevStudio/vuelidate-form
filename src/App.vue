@@ -6,6 +6,7 @@
       <v-input>*Дата рождения</v-input>
       <v-input>*Номер телефона</v-input>
       <v-radio name="gender" :list="['муж', 'жен']">*Пол</v-radio>
+      <v-selector>Лечащий врач</v-selector>
     </div>
   </form>
 </template>
@@ -14,10 +15,11 @@
 import { required, minLength, between } from "vuelidate/lib/validators";
 import VInput from "./components/v-input";
 import VRadio from "./components/v-radio";
+import VSelector from "./components/v-selector";
 
 export default {
   name: "App",
-  components: { VRadio, VInput },
+  components: { VSelector, VRadio, VInput },
   data() {
     return {
       name: "",

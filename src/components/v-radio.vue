@@ -8,7 +8,7 @@
         class="radio-buttons__item"
       >
         {{ index }}
-        <input type="radio" :value="key" :name="name" />
+        <input type="radio" :value="key" :name="name" class="test" />
       </label>
     </span>
   </v-form-item>
@@ -60,6 +60,6 @@ export default {
       right: 0
       border: 1px solid $color__border
       border-radius: 100%
-    input
-      display: none
+    /*input:checked + .radio-buttons__item:after*/
+    /*  background: aqua*/
 </style>

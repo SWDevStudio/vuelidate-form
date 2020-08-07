@@ -32,6 +32,7 @@ export default {
   +font($size__font_little)
   position: relative
   width: 180px
+  background: $color__background
   box-sizing: border-box
   height: 20px
   border-radius: 5px
