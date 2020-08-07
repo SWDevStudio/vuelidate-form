@@ -1,13 +1,26 @@
 <template>
-  <label class="form__item">
-    <span><slot /></span>
+  <div class="form__item">
+    <label :for="inputId"><slot /></label>
     <font-awesome-icon icon="exclamation-circle" class="form__icon-error" />
-    <input type="text" class="form__input" />
-  </label>
+    <input :id="inputId" type="text" class="form__input" />
+  </div>
 </template>
 
 <script>
 export default {
-  name: "v-input"
+  name: "v-input",
+  data() {
+    return {
+      inputId: ""
+    };
+  },
+  mounted() {
+    let abc = "abcdefghijklmnopqrstuvwxyz";
+    let rs = "";
+    while (rs.length < 6) {
+      rs += abc[Math.floor(Math.random() * abc.length)];
+    }
+    this.inputId = rs;
+  }
 };
 </script>

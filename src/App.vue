@@ -37,7 +37,7 @@ export default {
 </script>
 
 <style lang="sass">
-@import "./assets/css/global.sass"
+/*@import "./assets/css/global.sass"*/
 .form
   width: 400px
   margin: 0 auto
@@ -81,7 +81,7 @@ export default {
     margin-bottom: 20px
     &:last-child
       margin-bottom: 0
-    span
+    label
      +font()
   &__radio-group
     width: 180px

@@ -4,7 +4,8 @@
     <span class="form__radio-group">
       <span v-for="(index, key) in list" :key="key">
         <label
-          >{{ index }} <input type="radio" :value="key" :name="name" class="radio"
+          >{{ index }}
+          <input type="radio" :value="key" :name="name" class="radio"
         /></label>
       </span>
     </span>
@@ -26,4 +27,3 @@ export default {
   }
 };
 </script>
-
