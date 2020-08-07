@@ -1,20 +1,22 @@
 <template>
-  <div class="form__item">
+  <v-form-item>
     <span><slot /></span>
     <span class="form__radio-group">
       <span v-for="(index, key) in list" :key="key">
-        <label
-          >{{ index }}
-          <input type="radio" :value="key" :name="name" class="radio"
-        /></label>
+        <label>
+          {{ index }}
+          <input type="radio" :value="key" :name="name" class="radio" />
+        </label>
       </span>
     </span>
-  </div>
+  </v-form-item>
 </template>
 
 <script>
+import VFormItem from "./v-form-item";
 export default {
   name: "v-radio",
+  components: { VFormItem },
   props: {
     list: {
       type: Array,
@@ -27,3 +29,8 @@ export default {
   }
 };
 </script>
+<style lang="sass">
+.form__radio-group
+  width: 180px
+  display: flex
+</style>
