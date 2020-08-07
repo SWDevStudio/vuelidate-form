@@ -1,13 +1,15 @@
 <template>
   <v-form-item>
     <span><slot /></span>
-    <span class="form__radio-group">
-      <span v-for="(index, key) in list" :key="key">
-        <label>
-          {{ index }}
-          <input type="radio" :value="key" :name="name" class="radio" />
-        </label>
-      </span>
+    <span class="form__radio-buttons radio-buttons">
+      <label
+        v-for="(index, key) in list"
+        :key="key"
+        class="radio-buttons__item"
+      >
+        {{ index }}
+        <input type="radio" :value="key" :name="name" />
+      </label>
     </span>
   </v-form-item>
 </template>
@@ -30,7 +32,35 @@ export default {
 };
 </script>
 <style lang="sass">
-.form__radio-group
+.radio-buttons
   width: 180px
   display: flex
+  &__item
+    display: flex
+    align-items: center
+    padding-right: 25px
+    margin-right: 20px
+    position: relative
+    &.active
+      &:after
+        content: ''
+        position: absolute
+        width: 12px
+        height: 12px
+        right: 2px
+        top: 3px
+        background: #FF9696
+        border-radius: 100%
+
+    &:before
+      content: ''
+      position: absolute
+      width: 15px
+      height: 15px
+      right: 0
+      border: 1px solid #FF9696
+      border-radius: 100%
+
+    input
+      display: none
 </style>
