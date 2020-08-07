@@ -17,7 +17,7 @@ export default {
       inputId: ""
     };
   },
-  mounted() {
+  created() {
     let abc = "abcdefghijklmnopqrstuvwxyz";
     let rs = "";
     while (rs.length < 6) {

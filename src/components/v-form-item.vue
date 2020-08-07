@@ -15,12 +15,11 @@ export default {
   display: flex
   justify-content: space-between
   width: 100%
+  +font()
   &__error-icon
     margin-left: auto
     align-self: center
     margin-right: 5px
-  label
-    +font()
 .form__item
     margin-bottom: 20px
     &:last-child

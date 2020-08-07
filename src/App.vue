@@ -5,8 +5,18 @@
       <v-input>*Имя</v-input>
       <v-input>*Дата рождения</v-input>
       <v-input>*Номер телефона</v-input>
-      <v-radio name="gender" :list="['муж', 'жен']">*Пол</v-radio>
-      <v-selector>Лечащий врач</v-selector>
+      <v-radio name="gender" :list="['муж', 'жен']">
+        *Пол
+      </v-radio>
+      <v-selector
+        :list="['VIP', 'Проблемные', 'ОМС']"
+        :multiple="true"
+        :size="3"
+        name-selector="clientGroup[]"
+      >
+        *Группа клиентов
+      </v-selector>
+      <v-selector name="doctor">Лечащий врач</v-selector>
     </div>
   </form>
 </template>

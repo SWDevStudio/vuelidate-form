@@ -1,9 +1,9 @@
 <template>
   <v-form-item>
-    <slot />
+    <span><slot /></span>
     <label>
-      <select class="selector">
-        <option v-for="index in variables" :key="index"  :value="index">
+      <select class="selector" :name="nameSelector" :size="size" :id="randomId">
+        <option v-for="index in list" :key="index" :value="index">
           {{ index }}
         </option>
       </select>
@@ -16,12 +16,48 @@ import VFormItem from "./v-form-item";
 export default {
   name: "v-selector",
   components: { VFormItem },
+  data() {
+    return {
+      randomId: ""
+    };
+  },
   props: {
-    variables: {
+    list: {
       type: Array,
       default: () => ["Иванов", "Захаров", "Чернышева"]
+    },
+    nameSelector: {
+      type: String,
+      default: () => ""
+    },
+    size: {
+      type: Number,
+      default: () => 1
+    },
+    multiple: {
+      type: Boolean,
+      default: () => false
     }
-  }
+  },
+  methods: {
+    isMultiple() {
+      if (this.multiple) {
+        let obj = document.getElementById(this.randomId);
+        obj.setAttribute('multiple', '')
+      }
+    }
+  },
+  created() {
+    let abc = "abcdefghijklmnopqrstuvwxyz";
+    let rs = "";
+    while (rs.length < 6) {
+      rs += abc[Math.floor(Math.random() * abc.length)];
+    }
+    this.randomId = rs;
+  },
+    mounted() {
+      this.isMultiple();
+    }
 };
 </script>
 
