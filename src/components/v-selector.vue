@@ -2,7 +2,7 @@
   <v-form-item>
     <slot />
     <label>
-      <select class="selector" :id="inputId">
+      <select class="selector">
         <option v-for="index in variables" :key="index"  :value="index">
           {{ index }}
         </option>
