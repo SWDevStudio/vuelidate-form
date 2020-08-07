@@ -1,0 +1,16 @@
+@font-face
+  font-family: "Rubik"
+  src: url("~@/assets/fonts/Rubik-Regular.ttf")
+
+$color__text: #380000
+$color__background: #FFF4F4
+$color__border: #FF9696
+$color__warning: #FF0000
+
+$size__font: 16px
+$size__font_little: 14px
+
+@mixin font($size : $size__font, $color : $color__text)
+  font-family: "Rubik", "sans-serif"
+  font-size: $size
+  color: $color
