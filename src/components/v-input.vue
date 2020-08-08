@@ -85,12 +85,10 @@ export default {
         onlyLetters: "К сожалению сюда только буквы :/ ??"
       };
       for (let message in errorMessages) {
-        if (!validator[message]) {
-          answerValidator.push(errorMessages[message]);
-        }
+        if (!validator[message]) answerValidator.push(errorMessages[message]);
       }
-
       this.errorMessages = answerValidator;
+      console.log(answerValidator)
     }
   },
   validations() {
@@ -99,8 +97,8 @@ export default {
         required: this.required ? required : "",
         minLength: this.minLength ? minLength(this.minLength) : "",
         maxLength: this.maxLength ? maxLength(this.maxLength) : "",
-        onlyNumbers: this.phone || this.onlyNumbers ? str => /^\d+$/.test(str) : "",
-        onlyLetters: this.onlyLetters ? str => !/[0-9]/.test(str) : ""
+        onlyNumbers: this.phone || this.onlyNumbers ? str => /^\d+$/.test(str) || !str : "",
+        onlyLetters: this.onlyLetters ? str => !/[0-9]/.test(str) || !str: ""
       }
     };
   }
