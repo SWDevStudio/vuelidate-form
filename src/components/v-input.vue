@@ -1,12 +1,16 @@
 <template>
   <v-form-item>
-    <label :for="name"><slot /></label>
-    <v-error-icon class="form-row__error-icon" v-if="$v.value.$error" />
+    <label :for="idInput"><slot /></label>
+    <v-error-icon
+      class="form-row__error-icon"
+      v-if="$v.value.$error"
+      :error-messages="errorMessages"
+    />
     <div class="form__input" :class="{ form__input_phone: phone }">
       <input
-        :id="name"
-        type="text"
-        class="input "
+        :id="idInput"
+        :type="type"
+        class="input"
         :class="{ input_error: $v.value.$error }"
         v-model.lazy="$v.value.$model"
       />
@@ -22,7 +26,7 @@ export default {
   name: "v-input",
   components: { VErrorIcon, VFormItem },
   props: {
-    name: {
+    idInput: {
       type: String,
       default: () => {
         let abc = "abcdefghijklmnopqrstuvwxyz";
@@ -48,18 +52,35 @@ export default {
     phone: {
       type: Boolean,
       default: () => false
+    },
+    type: {
+      type: String,
+      default: () => "text"
     }
   },
-
   data() {
     return {
-      value: ""
+      value: "",
+      errorMessages: []
     };
   },
 
   watch: {
     value() {
-      console.log(this.$v.value.$error);
+      let answerValidator = [];
+      const validator = this.$v.value;
+      const errorMessages = {
+        onlyNumbers: "Сюда можно вводить только числа",
+        minLength: `Минимальная длинна строки ${this.minLength} символов`,
+        maxLength: `Максимальная длинна строки ${this.maxLength} символов`,
+        required: "Это поле не должно быть пустым!"
+      };
+      for (let message in errorMessages) {
+        if (!validator[message]) {
+          answerValidator.push(errorMessages[message]);
+        }
+      }
+      this.errorMessages = answerValidator;
     }
   },
   validations() {

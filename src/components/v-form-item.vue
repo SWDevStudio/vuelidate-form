@@ -14,6 +14,7 @@ export default {
 .form-row
   display: flex
   justify-content: space-between
+  align-items: center
   width: 100%
   +font()
   &__error-icon

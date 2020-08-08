@@ -1,29 +1,34 @@
 <template>
   <form action="" class="form">
     <div class="form__group">
-      <v-input
-        name="last_name"
-        :required="true"
-        :min-length="3"
-        :max-length="10"
-      >
+      <v-input id-input="last_name" :required="true">
         *Фамилия
       </v-input>
-      <v-input name="first_name">*Имя</v-input>
-      <v-input>*Дата рождения</v-input>
-      <v-input :phone="true">*Номер телефона</v-input>
+      <v-input id-input="first_name" :required="true">
+        *Имя
+      </v-input>
+      <v-input id-input="middle_name">
+        Отчество
+      </v-input>
+      <v-input type="date" id-input="date">
+        Дата рождения
+      </v-input>
+      <v-input :phone="true" :min-length="11" :max-length="11" id-input="phone">
+        *Номер телефона
+      </v-input>
       <v-radio name="gender" :list="['муж', 'жен']">
-        *Пол
+        Пол
       </v-radio>
       <v-selector
         :list="['VIP', 'Проблемные', 'ОМС']"
         :multiple="true"
         :size="3"
         name-selector="clientGroup[]"
+        :required="true"
       >
         *Группа клиентов
       </v-selector>
-      <v-selector name="doctor">Лечащий врач</v-selector>
+      <v-selector name="doctor" :selected="1">Лечащий врач</v-selector>
       <v-checkbox>Не отправлять СМС</v-checkbox>
     </div>
   </form>
