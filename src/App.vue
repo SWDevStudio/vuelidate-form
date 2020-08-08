@@ -1,10 +1,17 @@
 <template>
   <form action="" class="form">
     <div class="form__group">
-      <v-input name="last_name">*Фамилия</v-input>
+      <v-input
+        name="last_name"
+        :required="true"
+        :min-length="3"
+        :max-length="10"
+      >
+        *Фамилия
+      </v-input>
       <v-input name="first_name">*Имя</v-input>
       <v-input>*Дата рождения</v-input>
-      <v-input>*Номер телефона</v-input>
+      <v-input :phone="true">*Номер телефона</v-input>
       <v-radio name="gender" :list="['муж', 'жен']">
         *Пол
       </v-radio>
