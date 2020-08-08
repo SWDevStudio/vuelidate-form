@@ -31,7 +31,7 @@ export default {
   components: { VErrorIcon, VFormItem },
   data() {
     return {
-      value: ""
+      value: []
     };
   },
   validations() {

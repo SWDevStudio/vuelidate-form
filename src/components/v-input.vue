@@ -12,7 +12,7 @@
         :type="type"
         class="input"
         :class="{ input_error: $v.value.$error }"
-        v-model.lazy="$v.value.$model"
+        v-model.lazy.trim="$v.value.$model"
       />
     </div>
   </v-form-item>
@@ -56,6 +56,14 @@ export default {
     type: {
       type: String,
       default: () => "text"
+    },
+    onlyLetters: {
+      type: Boolean,
+      default: () => false
+    },
+    onlyNumbers: {
+        type: Boolean,
+        default: () => false
     }
   },
   data() {
@@ -73,13 +81,15 @@ export default {
         onlyNumbers: "Сюда можно вводить только числа",
         minLength: `Минимальная длинна строки ${this.minLength} символов`,
         maxLength: `Максимальная длинна строки ${this.maxLength} символов`,
-        required: "Это поле не должно быть пустым!"
+        required: "Это поле не должно быть пустым!",
+        onlyLetters: "К сожалению сюда только буквы :/ ??"
       };
       for (let message in errorMessages) {
         if (!validator[message]) {
           answerValidator.push(errorMessages[message]);
         }
       }
+
       this.errorMessages = answerValidator;
     }
   },
@@ -89,7 +99,8 @@ export default {
         required: this.required ? required : "",
         minLength: this.minLength ? minLength(this.minLength) : "",
         maxLength: this.maxLength ? maxLength(this.maxLength) : "",
-        onlyNumbers: this.phone ? str => /^\d+$/.test(str) : ""
+        onlyNumbers: this.phone || this.onlyNumbers ? str => /^\d+$/.test(str) : "",
+        onlyLetters: this.onlyLetters ? str => !/[0-9]/.test(str) : ""
       }
     };
   }
