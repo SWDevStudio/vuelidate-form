@@ -3,7 +3,7 @@
     <span><slot /></span>
     <span class="form__radio-buttons radio-buttons">
       <span v-for="(index, key) in list" :key="key" class="radio-buttons__item">
-        <v-radio-button :name="name">{{index}}</v-radio-button>
+        <v-radio-button :name="name">{{ index }}</v-radio-button>
       </span>
     </span>
   </v-form-item>
@@ -14,7 +14,7 @@ import VFormItem from "./v-form-item";
 import VRadioButton from "./v-radio-button";
 export default {
   name: "v-radio",
-  components: {VRadioButton, VFormItem },
+  components: { VRadioButton, VFormItem },
   props: {
     list: {
       type: Array,
@@ -28,9 +28,8 @@ export default {
   data() {
     return {
       randomId: ""
-    }
-  },
-
+    };
+  }
 };
 </script>
 <style lang="sass">

@@ -1,8 +1,8 @@
 <template>
   <form action="" class="form">
     <div class="form__group">
-      <v-input>*Фамилия</v-input>
-      <v-input>*Имя</v-input>
+      <v-input name="last_name">*Фамилия</v-input>
+      <v-input name="first_name">*Имя</v-input>
       <v-input>*Дата рождения</v-input>
       <v-input>*Номер телефона</v-input>
       <v-radio name="gender" :list="['муж', 'жен']">
@@ -23,7 +23,6 @@
 </template>
 
 <script>
-import { required, minLength, between } from "vuelidate/lib/validators";
 import VInput from "./components/v-input";
 import VRadio from "./components/v-radio";
 import VSelector from "./components/v-selector";
@@ -31,22 +30,7 @@ import VCheckbox from "./components/v-checkbox";
 
 export default {
   name: "App",
-  components: { VCheckbox, VSelector, VRadio, VInput },
-  data() {
-    return {
-      name: "",
-      age: 0
-    };
-  },
-  validations: {
-    name: {
-      required,
-      minLength: minLength(4)
-    },
-    age: {
-      between: between(20, 30)
-    }
-  }
+  components: { VCheckbox, VSelector, VRadio, VInput }
 };
 </script>
 
