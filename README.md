@@ -1,24 +1,22 @@
-# form
-
-## Project setup
+# vuelidate form
+Из ТЗ я не совсем понял могу ли я использовать такие библиотеки как 
+[vuex](https://vuex.vuejs.org/ru/), поэтому что бы сообщить ребенку о том что нужно проверять input использовал $refs для
+вызова метода метода ребенка.   
+Так же не до конца понял нужно ли делать дополнительную валидацию как проверка даты рождения, только числа, только буквы, но я их сделал.  
+UX дизайнер из меня не очень, посмотреть какая ошибка произошла при валидации вы можете наверя на восклицательный знак 
+## Установка сборки
 ```
 yarn install
 ```
-
-### Compiles and hot-reloads for development
+## Запуск проекта
 ```
-yarn serve
+yarn dev
 ```
-
-### Compiles and minifies for production
+## Сборка
 ```
 yarn build
 ```
 
-### Lints and fixes files
-```
-yarn lint
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Дока для конфигурации запуска
+Смотри [тут](https://cli.vuejs.org/config/).
