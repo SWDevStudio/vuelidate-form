@@ -5,5 +5,8 @@ module.exports = {
         additionalData: `@import "~@/assets/css/global.sass"`,
       }
     }
-  }
+  },
+  publicPath: process.env.NODE_ENV === 'production'
+      ? ''
+      : './'
 };
