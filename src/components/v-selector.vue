@@ -107,7 +107,7 @@ export default {
 <style lang="sass">
 .form__selector
   width: 180px
-  @media (max-width: 380px)
+  @media (max-width: 400px)
     width: 100%
 .selector
   position: relative

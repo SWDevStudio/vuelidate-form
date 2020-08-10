@@ -11,8 +11,8 @@
       <v-input id-input="middle_name" only-letters ref="middle_name">
         Отчество
       </v-input>
-      <v-input type="date" id-input="date">
-        Дата рождения
+      <v-input type="date" id-input="date" required ref="birth" birth>
+        *Дата рождения
       </v-input>
       <v-input
         :phone="true"

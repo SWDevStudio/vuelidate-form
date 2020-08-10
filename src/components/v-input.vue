@@ -37,6 +37,10 @@ export default {
         return rs;
       }
     },
+    birth: {
+        type: Boolean,
+        default: () => false
+    },
     minLength: {
       type: Number,
       default: () => null
@@ -82,7 +86,8 @@ export default {
               minLength: `Минимальная длинна строки ${this.minLength} символов`,
               maxLength: `Максимальная длинна строки ${this.maxLength} символов`,
               required: "Это поле не должно быть пустым!",
-              onlyLetters: "К сожалению сюда только буквы :/ ??"
+              onlyLetters: "К сожалению сюда только буквы :/ ??",
+              birth: "Вы из будущего о_О? "
           };
           for (let message in errorMessages) {
               if (!validator[message]) answerValidator.push(errorMessages[message]);
@@ -103,7 +108,8 @@ export default {
         minLength: this.minLength ? minLength(this.minLength) : "",
         maxLength: this.maxLength ? maxLength(this.maxLength) : "",
         onlyNumbers: this.phone || this.onlyNumbers ? str => /^\d+$/.test(str) || !str : "",
-        onlyLetters: this.onlyLetters ? str => !/[0-9]/.test(str) || !str: ""
+        onlyLetters: this.onlyLetters ? str => !/[0-9]/.test(str) || !str: "",
+        birth: this.birth ? val => new Date(Date.now()) > new Date(Date.UTC(...val.split('-'))) : ""
       }
     };
   }
@@ -139,10 +145,7 @@ export default {
   &:focus
     transition: .4s
     box-shadow: inset 0 0 3px 1px $color__border
-  &_error
-    border: 1px solid $color__warning
-    box-shadow: inset 0 0 3px 1px $color__border
-@media (max-width: 380px)
+@media (max-width: 400px)
   .form__input
     width: 100%
 </style>
