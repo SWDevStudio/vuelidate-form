@@ -84,6 +84,10 @@ export default {
         obj.setAttribute("multiple", "");
       }
     },
+    check() {
+      this.$v.$touch();
+        return [this.$v.value.$invalid, this.idSelector]
+    },
     // TODO @Kotaro при попытке сделать selected 0 не отображает выбранный элемент на странице, с остальными элементами все ОК
     setSelected() {
       if (typeof this.selected === "number" && this.selected >= 0) {

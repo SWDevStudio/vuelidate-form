@@ -72,23 +72,28 @@ export default {
       errorMessages: []
     };
   },
-
+  methods: {
+      check(){
+          this.$v.$touch()
+          let answerValidator = [];
+          const validator = this.$v.value;
+          const errorMessages = {
+              onlyNumbers: "Сюда можно вводить только числа",
+              minLength: `Минимальная длинна строки ${this.minLength} символов`,
+              maxLength: `Максимальная длинна строки ${this.maxLength} символов`,
+              required: "Это поле не должно быть пустым!",
+              onlyLetters: "К сожалению сюда только буквы :/ ??"
+          };
+          for (let message in errorMessages) {
+              if (!validator[message]) answerValidator.push(errorMessages[message]);
+          }
+          this.errorMessages = answerValidator;
+          return [this.$v.value.$invalid, this.idInput]
+      }
+  },
   watch: {
     value() {
-      let answerValidator = [];
-      const validator = this.$v.value;
-      const errorMessages = {
-        onlyNumbers: "Сюда можно вводить только числа",
-        minLength: `Минимальная длинна строки ${this.minLength} символов`,
-        maxLength: `Максимальная длинна строки ${this.maxLength} символов`,
-        required: "Это поле не должно быть пустым!",
-        onlyLetters: "К сожалению сюда только буквы :/ ??"
-      };
-      for (let message in errorMessages) {
-        if (!validator[message]) answerValidator.push(errorMessages[message]);
-      }
-      this.errorMessages = answerValidator;
-      console.log(answerValidator)
+      this.check()
     }
   },
   validations() {
