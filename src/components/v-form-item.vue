@@ -13,6 +13,7 @@ export default {
 <style lang="sass">
 .form-row
   display: flex
+  flex-wrap: wrap
   justify-content: space-between
   align-items: center
   width: 100%
@@ -25,4 +26,5 @@ export default {
     margin-bottom: 20px
     &:last-child
         margin-bottom: 0
+
 </style>

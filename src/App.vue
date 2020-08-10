@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="submit" class="form">
     <div class="form__group">
-      <h2 class="form__title">Личные данные</h2>
+      <h2 class="form__title">Форма</h2>
       <v-input id-input="last_name" required only-letters ref="last_name">
         *Фамилия
       </v-input>
@@ -70,14 +70,14 @@
     </div>
     <div class="form__group">
       <h2 class="form__title">
-        Паспорт
+        Документ
       </h2>
       <v-selector
         :list="['Паспорт', 'Свидетельство о рождении', 'Вод удостоверение']"
-        :selected="1"
         name="document"
         ref="type-document"
         id-selector="type-document"
+        required
       >
         *Тип документа
       </v-selector>
@@ -156,7 +156,7 @@ export default {
 
 <style lang="sass">
 .form
-  width: 400px
+  max-width: 400px
   margin: 0 auto
   background: $color__background
   padding: 5px
@@ -168,7 +168,7 @@ export default {
   &__group
     border: 1px solid $color__border
     border-radius: 5px
-    padding: 10px 15px 10px 7px
+    padding: 10px 15px
     margin-bottom: 25px
   &__message
     +font()

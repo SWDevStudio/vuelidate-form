@@ -111,6 +111,7 @@ export default {
 </script>
 <style lang="sass">
 .form__input
+  width: 180px
   &_phone
     position: relative
     &:before
@@ -127,10 +128,10 @@ export default {
 .input
   +font($size__font_little)
   position: relative
-  width: 180px
   background: $color__background
   box-sizing: border-box
   height: 20px
+  width: 100%
   border-radius: 5px
   border: 1px solid $color__border
   padding: 0 5px
@@ -141,4 +142,7 @@ export default {
   &_error
     border: 1px solid $color__warning
     box-shadow: inset 0 0 3px 1px $color__border
+@media (max-width: 380px)
+  .form__input
+    width: 100%
 </style>

@@ -6,7 +6,7 @@
       v-if="$v.value.$error"
       :error-messages="['Выберете пункты селектора!']"
     />
-    <label>
+    <label class="form__selector">
       <select
         class="selector"
         :name="nameSelector"
@@ -55,7 +55,7 @@ export default {
       default: () => ""
     },
     selected: {
-      default: () => false
+      default: () => null
     },
     size: {
       type: Number,
@@ -86,16 +86,17 @@ export default {
     },
     check() {
       this.$v.$touch();
-        return [this.$v.value.$invalid, this.idSelector]
+      return [this.$v.value.$invalid, this.idSelector];
     },
     // TODO @Kotaro при попытке сделать selected 0 не отображает выбранный элемент на странице, с остальными элементами все ОК
     setSelected() {
-      if (typeof this.selected === "number" && this.selected >= 0) {
+      if (this.selected !== null) {
         let obj = document.getElementById(this.idSelector)[this.selected];
         obj.setAttribute("selected", "selected");
       }
     }
   },
+
   mounted() {
     this.isMultiple();
     this.setSelected();
@@ -104,9 +105,13 @@ export default {
 </script>
 
 <style lang="sass">
+.form__selector
+  width: 180px
+  @media (max-width: 380px)
+    width: 100%
 .selector
   position: relative
-  width: 180px
+  width: inherit
   background: $color__background
   border:  1px solid $color__border
   border-radius: 5px
